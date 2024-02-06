@@ -1,0 +1,32 @@
+import {auto} from "../support/methods";
+
+describe('Check Tovar', ()=> {
+    it ('by', ()=> {
+        auto.Site()
+        auto.Zapro('Аксессуары')
+        auto.Poisk('Найти')
+        cy.get('[data-id="200"]').click()
+        cy.get('.ui-filters__apply-btn').click()
+        cy.wait(1000)
+        auto.Poisk('MK4746 - Lexington Three Hand Watch')
+        auto.opisanie()
+        cy.go('back')
+        cy.wait(2000)
+        auto.Poisk('Staple')
+        cy.get('.product-color').eq(2).click()
+        cy.get('.product-color').eq(0).click()
+        auto.opisanie()
+        cy.go('back')
+        cy.wait(1000)
+        cy.get('[data-id="214"]').click()
+        cy.get('.ui-filters__apply-btn').click()
+        auto.Poisk('Lennox Gold-Tone Watch')
+        auto.opisanie()
+        cy.go('back')
+        cy.wait(1000)
+        auto.Poisk("Runway Pavé Gold-Toneand Tiger'S Eye Watch")
+        cy.get('.toggle-content__heading').click()
+        cy.go('back')
+    })
+})
+
